@@ -24,6 +24,11 @@ public class GatitoService {
         return gatitoRepository.findAll();
     }
 
+    public List<Gatito> leerGatitosPorEdad(Integer edad){
+        return gatitoRepository.findByEdad(edad);
+
+    }
+
     public Gatito actualizarGatito(Gatito gatitoActualizado, Long id){
         Gatito gatito = gatitoRepository.findById(id).orElse(null);
 

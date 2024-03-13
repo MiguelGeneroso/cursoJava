@@ -28,6 +28,13 @@ public class GatitoController {
         return ResponseEntity.ok(listaGatitos);
     }
 
+    @GetMapping("/Gatitos/{edad}")
+    public ResponseEntity<List<Gatito>>gatitosPorEdad(@PathVariable Integer edad){
+        List<Gatito> listaGatitos = gatitoService.leerGatitosPorEdad(edad);
+
+        return ResponseEntity.ok(listaGatitos);
+    }
+
     @PutMapping("/actualizarGatito/{id}")
     public ResponseEntity<Gatito> actualizarGatitos(@RequestBody Gatito gatito, @PathVariable Long id){
         Gatito gatitoActualizado = gatitoService.actualizarGatito(gatito,id);
